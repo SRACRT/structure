@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chrome 擴充套件部署站</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      line-height: 1.6;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .file-list {
+      margin-top: 20px;
+      background: #fafafa;
+      border-left: 4px solid #0066cc;
+      padding: 10px 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Chrome 擴充套件部署</h1>
+    <p>本頁面用於透過 <strong>GPO 發佈</strong> Google Chrome 擴充功能。</p>
+
+    <h2>📦 擴充檔案列表：</h2>
+    <div class="file-list">
+      <p><a href="./your-extension.crx" download>🔗 點我下載 your-extension.crx</a></p>
+      <p><a href="./update.xml" target="_blank">🔗 檢視 update.xml</a></p>
+    </div>
+
+    <h2>🛠 GPO 設定參考：</h2>
+    <p>請在 GPO 中的 <code>ExtensionInstallForcelist</code> 新增下列條目：</p>
+    <pre><code>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;https://yourusername.github.io/your-repo/update.xml</code></pre>
+    <p>其中前面為擴充功能 ID，後面為 GitHub Pages 上的 XML 檔案網址。</p>
+
+    <h2>📘 備註：</h2>
+    <ul>
+      <li>請確認網址為 <code>https</code>，否則 Chrome 將拒絕安裝。</li>
+      <li>不要放置敏感資料於此頁面，因為是公開可見的。</li>
+      <li>如需更新擴充，請重新打包 .crx 並更新 <code>update.xml</code> 的版本號。</li>
+    </ul>
+  </div>
+</body>
+</html>
